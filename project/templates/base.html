@@ -1,0 +1,301 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>wedyy</title>
+    <meta name="robots" content="nomain:index, follow" />
+    <meta name="description" content="weddy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="profile" href="https://gmpg.org/xfn/11" />
+    <link rel="canonical" href="#" />
+
+    <!-- Open Graph (OG) meta tags are snippets of code that control how URLs are displayed when shared on social media  -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="weddy" />
+    <meta property="og:url" content="#" />
+    <meta property="og:site_name" content="weddy" />
+    <!-- For the og:image content, replace the # with a link of an image -->
+    <meta property="og:image" content="#" />
+    <meta property="og:description" content="weddy" />
+    <!-- Add site Favicon -->
+    <link
+      rel="icon"
+      href="{% static 'images/favicon/cropped-favicon-32x32.png' %}"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="{% static 'images/favicon/cropped-favicon-192x192.png' %}"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="{% static 'images/favicon/cropped-favicon-180x180.png' %}"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="{% static 'images/favicon/cropped-favicon-270x270.png' %}"
+    />
+
+    <!-- All CSS is here
+	============================================ -->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor/pe-icon-7-stroke.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor/themify-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/select2.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/easyzoom.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/slinky.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-bottom sticky-bar">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3 col-md-6 col-6">
+              <div class="logo">
+                <a href="{% url 'main:index' %}"
+                  ><img src="{% static 'images/logo/logo.png' %}" alt="logo"
+                /></a>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 d-none d-lg-block d-flex justify-content-center"
+            >
+              <div class="main-menu text-center">
+                <nav>
+                  <ul>
+                    <li><a href="{% url 'main:index' %}"> HOME</a></li>
+                    <li>
+                      <a href="{% url 'main:shop' %}">SHOP</a>
+                      <ul class="mega-menu-style mega-menu-mrg-1">
+                        <li>
+                          <ul>
+                            <li>
+                              <a class="dropdown-title" href="#">Shop women</a>
+                              <ul>
+                                <li><a href="{% url 'main:shop' %}">standard style</a></li>
+                                <li><a href="Robe.html">wedding dress</a></li>
+                                <li>
+                                  <a href="acessoire-women.html">Accessoire</a>
+                                </li>
+                                <li>
+                                  <a href="Makeup.html">Makeup and skin care</a>
+                                </li>
+
+                                <li><a href="shop-location.html">Bags</a></li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a class="dropdown-title" href="#">shop men</a>
+                              <ul>
+                                <li><a href="costume.html">Groom's set</a></li>
+                                <li><a href="shoes.html">shoes</a></li>
+                                <li>
+                                  <a href="acessoire-men.html">wastwatch </a>
+                                </li>
+                                <li><a href="parfume.html">ectrominage</a></li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="{% url 'main:shop' %}"
+                                ><img
+                                  src="{% static 'images/banner/menu.png' %}"
+                                  alt=""
+                              /></a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <a href="#">SERVICE</a>
+                      <ul class="sub-menu-style">
+                        <li><a href="{% url 'main:cameraPage' %}">photographe </a></li>
+                        <li><a href="{% url 'main:party_rooms' %}">party room</a></li>
+                        <li>
+                          <a href="{% url 'main:makeup' %}">Makeup/Coiffeur </a>
+                        </li>
+                        <li><a href="{% url 'main:cake' %}">Cake </a></li>
+                      </ul>
+                    </li>
+                    <li><a href="{% url 'main:about' %}">ABOUT</a></li>
+                    <li><a href="{% url 'main:contact' %}">CONTACT US</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+              <div class="header-action-wrap">
+                <div class="header-action-style header-search-1">
+                  <a class="search-toggle" href="#">
+                    <i class="pe-7s-search s-open"></i>
+                    <i class="pe-7s-close s-close"></i>
+                  </a>
+                  <div class="search-wrap-1">
+                    <form action="#">
+                      <input placeholder="Search products…" type="text" />
+                      <button class="button-search">
+                        <i class="pe-7s-search"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                <div class="header-action-style">
+                  {% if user.is_authenticated %}
+    <a title="Logout" href="{% url 'users:logout' %}">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>
+    </a>
+   
+    {% else %}
+    <a title="Login/Register" href="{% url 'users:login' %}">
+      <i class="fa fa-sign-in" aria-hidden="true"></i>
+    </a>
+{% endif %}
+                </div>
+                {% if user.is_authenticated  %}
+                <div class="header-action-style">
+                  <a title="profile" href="{% url 'main:profile' %}"
+                    ><i class="pe-7s-user"></i
+                  ></a>
+                </div>
+                  
+                {% endif %}
+                <div class="header-action-style">
+                  <a title="Wishlist" href="{% url 'main:wishlist' %}"
+                    ><i class="pe-7s-like"></i
+                  ></a>
+                </div>
+                <div class="header-action-style header-action-cart">
+                  <a class="" href="{% url 'main:cart' %}"
+                    ><i class="pe-7s-shopbag"></i>
+                  </a>
+                </div>
+                <div class="header-action-style d-block d-lg-none">
+                  <a class="mobile-menu-active-button" href="#"
+                    ><i class="pe-7s-menu"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {% block content %}
+      
+    {% endblock content %}
+    <!-- All JS is here -->
+    <footer class="footer-area">
+        <div class="bg-gray-2">
+          <div class="container">
+            <div class="footer-top pt-80 pb-35">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div class="footer-widget footer-about mb-40"> 
+                    <div class="footer-logo">
+                      <a href="{% url 'main:index' %}"
+                        ><img src="{% static 'images/logo/logo.png' %}" alt="logo"
+                      /></a>
+                    </div>
+                    <p>welcom to our official page</p>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div
+                    class="footer-widget footer-widget-margin-1 footer-list mb-40"
+                  >
+                    <h3 class="footer-title">Information</h3>
+                    <ul>
+                      <li><a href="{% url 'main:about' %}">About Us</a></li>
+                      <li><a href="{% url 'main:contact' %}">contact Us</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Customer Service</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                  <div class="footer-widget footer-list mb-40">
+                    <h3 class="footer-title">My Accound</h3>
+                    <ul>
+                      <li><a href="{% url 'main:profile' %}">My Account</a></li>
+
+                      <li><a href="{% url 'main:wishlist' %}">Wish List</a></li>
+                      <li><a href="#">Newsletter</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                  <div
+                    class="footer-widget footer-widget-margin-2 footer-address mb-40"
+                  >
+                    <h3 class="footer-title">Get in touch</h3>
+                    <ul>
+                      <li><span>Address: </span>Your address goes here</li>
+                      <li><span>Telephone Enquiry:</span> (+213) .......</li>
+                      <li><span>Email: </span>demo@example.com</li>
+                    </ul>
+                    <div class="open-time">
+                      <p>
+                        Open : <span>8:00 AM</span> - Close :
+                        <span>18:00 PM</span>
+                      </p>
+                      <p>Saturday - Sunday : Close</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-3">
+          <div class="container">
+            <div class="footer-bottom copyright text-center bg-gray-3">
+              <p>
+                Copyright ©2024 All rights reserved | Made with
+                <i class="fa fa-heart"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-3.3.2.min.js' %}"></script>
+    <script src="{% static 'js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/wow.js' %}"></script>
+    <script src="{% static 'js/plugins/scrollup.js' %}"></script>
+    <script src="{% static 'js/plugins/aos.js' %}"></script>
+    <script src="{% static 'js/plugins/magnific-popup.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.syotimer.min.js' %}"></script>
+    <script src="{% static 'js/plugins/swiper.min.js' %}"></script>
+    <script src="{% static 'js/plugins/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/plugins/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery-ui-touch-punch.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/plugins/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.counterup.js' %}"></script>
+    <script src="{% static 'js/plugins/select2.min.js' %}"></script>
+    <script src="{% static 'js/plugins/easyzoom.js' %}"></script>
+    <script src="{% static 'js/plugins/slinky.min.js' %}"></script>
+    <script src="{% static 'js/plugins/ajax-mail.js' %}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

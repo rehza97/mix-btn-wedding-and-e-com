@@ -1,0 +1,265 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+  <style>
+    .pagination {
+        margin-top: 20px !important;
+    text-align: center !important;
+    margin: auto 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center
+}
+
+.pagination button {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pagination button  {
+    display: inline-block !important;
+    margin-right: 5px !important;
+}
+
+.pagination button {
+    display: inline-block !important;
+    padding: 5px 10px !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 3px !important;
+}
+
+.pagination button.active {
+    background-color: #fd1748 !important;
+    color: #fff !important;
+    border-color: #fd1748 !important;
+}
+
+.pagination button:hover {
+    background-color: #fd1748 !important;
+    color: #fff !important;
+    border-color: #fd1748 !important;
+}
+
+  </style>
+    <div class="main-wrapper main-wrapper-2">
+
+
+        <div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h2 data-aos="fade-up" data-aos-delay="200">Shop</h2>
+                    <ul data-aos="fade-up" data-aos-delay="400">
+                        <li><a href="{% url 'main:index' %}">Home</a></li>
+                        <li><i class="ti-angle-right"></i></li>
+                        <li>Shop List Sidebar</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="breadcrumb-img-1" data-aos="fade-right" data-aos-delay="200">
+                <img src="{% static 'images/banner/breadcrumb-1.png' %}" alt="">
+            </div>
+            <div class="breadcrumb-img-2" data-aos="fade-left" data-aos-delay="200">
+                <img src="{% static 'images/banner/breadcrumb-2.png' %}" alt="">
+            </div>
+        </div>
+        <div class="shop-area shop-page-responsive pt-100 pb-100">
+            <div class="container">
+                <div class="row flex-row-reverse">
+                    <div class="col-lg-9">
+                        <div class="shop-topbar-wrapper mb-40">
+                            <div class="shop-topbar-left">
+                                <div class="showing-item">
+                                    <span>{{products_count}} results</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="shop-bottom-area">
+                            <div class="tab-content jump">
+                                <div id="shop-1" class="tab-pane active">
+                                    <div class="row">
+                                        {% for product in products %}
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 productis">
+                                            <div class="product-wrap mb-35">
+                                                <div class="product-img img-zoom mb-25">
+                                                    <a href="{% url 'main:product' product.id %}">
+                                                        {% if product.image1 %}
+                                                        <img src="{{product.image1.url}}" alt="">
+                                                          
+                                                        {% else %}
+                                                        <img src="{% static 'images/no_imgpng.png' %}" alt="">
+                                                        {% endif %}
+                                                    </a>
+                                                    
+                                                    <div class="product-action-wrap">
+                                                        <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
+                                                        <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="pe-7s-look"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="product-action-2-wrap">
+                                                        <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h3><a href="{% url 'main:product' product.id %}">{{product.title}}</a></h3>
+                                                    {% if product.reduction %}
+                                                    <div class="product-price">
+                                                        <span class="old-price">{{product.prix}} dzd </span>
+                                                        <span class="new-price">{{product.reduction}} dzd </span>
+                                                    </div>
+                                                    
+                                                    {% else %}
+                                                    <div class="product-price">
+                                                        <span class="new-price">{{product.prix}} dzd </span>
+                                                    </div>
+
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                          
+                                        {% endfor %}
+
+                                    </div>
+                                    
+                                    <div class="pagination pagination-style-1">
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                  
+
+                    <form  class="col-lg-3">
+                        <div class="sidebar-wrapper">
+                            <div class="sidebar-widget mb-40" data-aos="fade-up" data-aos-delay="200">
+                                <div class="search-wrap-2">
+                                    <span class="search-2-form" action="#">
+                                        {% render_field myFilter.form.title class="form-control" placeholder='Titre' %}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget sidebar-widget-border mb-40 pb-35" data-aos="fade-up" data-aos-delay="200">
+                                <div class="sidebar-widget-title mb-30">
+                                    <h3>Filter By Gender</h3>
+                                </div>
+                                <div class="price-filter">
+                                  
+                                    <div class="price-slider-amount">
+                                        <div class="label-input">
+                                        {% render_field myFilter.form.gender class="form-control" placeholder='min-max' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="sidebar-widget sidebar-widget-border mb-40 pb-35" data-aos="fade-up" data-aos-delay="200">
+                                <div class="sidebar-widget-title mb-30">
+                                    <h3>Filter By Price</h3>
+                                </div>
+                                <div class="price-filter">
+                                  
+                                    <div class="price-slider-amount">
+                                        <div class="label-input">
+                                        {% render_field myFilter.form.prix class="form-control" placeholder='min-max' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-widget sidebar-widget-border mb-40 pb-35" data-aos="fade-up" data-aos-delay="200">
+                            <div class="sidebar-widget-title mb-25">
+                                <h3>Product Categories</h3>
+                            </div>
+                            <div class="sidebar-list-style">
+                                    {% render_field myFilter.form.category class="form-control"  %}
+                                    
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="200">
+                                <div class="sidebar-widget-title mb-25">
+                                    <h3>Tags</h3>
+                                </div>
+                                <div class="sidebar-widget-tag">
+                                    {% render_field myFilter.form.tag class="form-control"  %}
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn accordion-button" style="background-color: #fd1748; text-align: center;" > Filter</button>
+                    </form>
+                
+                </div>
+            </div>
+        </div>
+     
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const productsPerPage = 6; // Number of products to display per page
+    const products = document.querySelectorAll(".productis");
+    const totalPages = Math.ceil(products.length / productsPerPage);
+    let currentPage = 1;
+
+    function showPage(page) {
+        const startIndex = (page - 1) * productsPerPage;
+        const endIndex = startIndex + productsPerPage;
+        products.forEach(function(product, index) {
+            if (index >= startIndex && index < endIndex) {
+                product.style.display = "block";
+            } else {
+                product.style.display = "none";
+            }
+        });
+    }
+
+    function createPagination() {
+        const paginationContainer = document.querySelector(".pagination");
+        let paginationHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+            paginationHTML += `<button class="page-btn" data-page="${i}">${i}</button>`;
+        }
+
+        paginationContainer.innerHTML = paginationHTML;
+
+        const pageButtons = document.querySelectorAll(".page-btn");
+        pageButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const page = parseInt(button.getAttribute("data-page"));
+                currentPage = page;
+                showPage(page);
+                updatePaginationButtons();
+            });
+        });
+    }
+
+    function updatePaginationButtons() {
+        const pageButtons = document.querySelectorAll(".page-btn");
+        pageButtons.forEach(function(button) {
+            const pageNumber = parseInt(button.getAttribute("data-page"));
+            if (pageNumber === currentPage) {
+                button.classList.add("active");
+            } else {
+                button.classList.remove("active");
+            }
+        });
+    }
+
+    showPage(currentPage);
+    createPagination();
+});
+
+    </script>
+    {% endblock content %}
+
